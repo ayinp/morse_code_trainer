@@ -1,7 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../Morse_Code_Decoder.srcs/sources_1/new/morse_decoder.v" \
-"../../../../Morse_Code_Decoder.srcs/sim_1/new/morse_decoder_tb.v" \
+"../../../../Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v" \
+"../../../../Morse_Code_Decoder.srcs/sim_1/new/button_to_morse_tb.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"
