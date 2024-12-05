@@ -21,7 +21,7 @@
 
 
 module button_to_morse_tb;
-    reg clock;                 // 100 MHz clock
+    reg clock;                 // 10 Hz clock
     reg reset;                 // Reset signal
     reg button;                // Button signal (active high)
     wire [1:0] morse_one;      // Morse code output
@@ -30,53 +30,49 @@ module button_to_morse_tb;
     wire [1:0] morse_four;     // Morse code output
     wire [1:0] morse_five;     // Morse code output
     wire [1:0] morse_six;      // Morse code output
-    wire is_space;             // Space indicator
     wire letter_done;          // Letter done indicator
+    wire [2:0] morse_index;
     
     // Instantiate the button_to_morse module
-    button_to_morse uut (
-        .clock(clock),
-        .reset(reset),
-        .button(button),
-        .morse_one(morse_one),
-        .morse_two(morse_two),
-        .morse_three(morse_three),
-        .morse_four(morse_four),
-        .morse_five(morse_five),
-        .morse_six(morse_six),
-        .is_space(is_space),
-        .letter_done(letter_done)
-    );
+    button_to_morse b1(clock, reset, button, morse_one, morse_two, morse_three, morse_four, morse_five, morse_six, letter_done, morse_index);
 
     // Create a slower clock, for example, 10 Hz (100 ms period)
     always begin
-        #50 clock = ~clock;  // 10 Hz clock period
+        #1 clock = ~clock;  // 10 Hz clock period
     end
 
-    initial begin
-        // Initialize signals
-        clock = 0;
-        reset = 0;
-        button = 0;
+   initial begin
+    // Initialize signals
+    clock = 0;
+    reset = 0;
+    button = 0;
 
-        // Apply reset
-        #100 reset = 1;
-        #100 reset = 0;
+    // Apply reset
+    #20 reset = 1;
+    #20 reset = 0;
 
-        // Simulate a short button press (dot: 0.5 seconds)
-        #100 button = 1;   // Button pressed
-        #50 button = 0;    // Button released (0.5 seconds = dot)
+    #20 button = 1;   // Button pressed
+    #10 button = 0;  // Button released (1.5 seconds = dash)
+    #30 button = 1;
+    #10 button = 0;
+    #30 button = 1;
+    #30 button = 0;
+    
+    #90 button = 1;   // Button pressed
+    #10 button = 0;  // Button released (1.5 seconds = dash)
+    #30 button = 1;
+    #30 button = 0;
+    #30 button = 1;
+    #30 button = 0;
 
-        // Wait for some time
-        #100;
+    // Wait for some time
+    #100;
 
-        // Simulate a long button press (dash: 1.5 seconds)
-        #100 button = 1;   // Button pressed
-        #150 button = 0;   // Button released (1.5 seconds = dash)
+    // End simulation
+    #100 $finish;
+end
 
-        // End simulation
-        #100 $finish;
-    end
 endmodule
+
 
 

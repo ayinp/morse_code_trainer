@@ -1,0 +1,9 @@
+0.7
+2020.2
+May 22 2024
+19:03:11
+X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.sim/sim_1/behav/xsim/glbl.v,1708598507,verilog,,,,glbl,,,,,,,,
+X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sim_1/new/button_to_morse_tb.v,1733361604,verilog,,,,button_to_morse_tb,,,,,,,,
+X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sim_1/new/morse_decoder_tb.v,1733354447,verilog,,,,morse_decoder_tb,,,,,,,,
+X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v,1733361663,verilog,,X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sim_1/new/button_to_morse_tb.v,,button_to_morse,,,,,,,,
+X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/morse_decoder.v,1733349312,verilog,,X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sim_1/new/morse_decoder_tb.v,,morse_decoder,,,,,,,,

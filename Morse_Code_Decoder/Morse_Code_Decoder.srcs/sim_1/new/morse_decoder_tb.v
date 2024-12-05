@@ -23,6 +23,7 @@ module morse_decoder_tb(
     );
 
     reg [1:0] morse_one, morse_two, morse_three, morse_four, morse_five, morse_six;
+    reg is_space; 
     wire [7:0] ascii_char;
 
     // Instantiate the morse_decoder module
@@ -33,6 +34,7 @@ module morse_decoder_tb(
         .morse_four(morse_four),
         .morse_five(morse_five),
         .morse_six(morse_six),
+        .is_space(is_space),
         .ascii_char(ascii_char)
     );
 
@@ -40,6 +42,7 @@ module morse_decoder_tb(
         // Initialize inputs
         morse_one = 2'b00; morse_two = 2'b00; morse_three = 2'b00;
         morse_four = 2'b00; morse_five = 2'b00; morse_six = 2'b00;
+        is_space = 0;
     
         // Wait for global reset
         #10;
