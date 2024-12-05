@@ -1,2 +1,2 @@
 Time resolution is 1 ps
-$finish called at time : 590 ns : File "X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sim_1/new/button_to_morse_tb.v" Line 72
+$finish called at time : 776 ns : File "C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sim_1/new/button_to_ascii_tb.v" Line 92

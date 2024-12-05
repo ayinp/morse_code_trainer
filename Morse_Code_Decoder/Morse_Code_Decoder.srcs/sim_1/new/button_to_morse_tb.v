@@ -31,12 +31,13 @@ module button_to_morse_tb;
     wire [1:0] morse_five;     // Morse code output
     wire [1:0] morse_six;      // Morse code output
     wire letter_done;          // Letter done indicator
-    wire [2:0] morse_index;
+    wire is_space;
+    wire [2:0] morse_index;    
     
     // Instantiate the button_to_morse module
-    button_to_morse b1(clock, reset, button, morse_one, morse_two, morse_three, morse_four, morse_five, morse_six, letter_done, morse_index);
+    button_to_morse b1(clock, reset, button, morse_one, morse_two, morse_three, morse_four, morse_five, morse_six, letter_done, is_space, morse_index);
 
-    // Create a slower clock, for example, 10 Hz (100 ms period)
+    // Create a slower clock, 10 Hz (100 ms period)
     always begin
         #1 clock = ~clock;  // 10 Hz clock period
     end
@@ -51,15 +52,25 @@ module button_to_morse_tb;
     #20 reset = 1;
     #20 reset = 0;
 
-    #20 button = 1;   // Button pressed
-    #10 button = 0;  // Button released (1.5 seconds = dash)
+    // Letter U
+    #20 button = 1; 
+    #10 button = 0; 
     #30 button = 1;
     #10 button = 0;
     #30 button = 1;
     #30 button = 0;
     
-    #90 button = 1;   // Button pressed
-    #10 button = 0;  // Button released (1.5 seconds = dash)
+    // Letter P
+    #90 button = 1; 
+    #10 button = 0; 
+    #30 button = 1;
+    #30 button = 0;
+    #30 button = 1;
+    #30 button = 0;
+    
+    //Wait time for space
+    #90 button = 1; 
+    #10 button = 0; 
     #30 button = 1;
     #30 button = 0;
     #30 button = 1;
