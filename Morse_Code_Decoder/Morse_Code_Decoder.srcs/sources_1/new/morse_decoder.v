@@ -28,6 +28,7 @@ module morse_decoder (
     input [1:0] morse_six,   // . = 01, - = 10
     input letter_done,       // Detect if letter is done
     input is_space,          // Detects a space
+    input is_delete,
     output reg [7:0] ascii_char // ASCII character output
 );
 
@@ -47,8 +48,10 @@ module morse_decoder (
         if (is_space) begin
             ascii_char = " ";
             last_valid_char = ascii_char;
+        end else if (is_delete) begin
+            ascii_char = 8'h7f;
+            last_valid_char = ascii_char;
         end else if (letter_done) begin         
-    
             // Start traversal of binary tree
             if (morse_one == 2'b01) begin // Dot (E branch)
                 if (morse_two == 2'b01) begin // Dot (I branch)

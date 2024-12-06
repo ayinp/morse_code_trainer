@@ -6,11 +6,4 @@ Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.button_to_morse
-Compiling module xil_defaultlib.morse_decoder
-Compiling module xil_defaultlib.button_to_ascii_tb
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot button_to_ascii_tb_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

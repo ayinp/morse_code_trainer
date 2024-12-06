@@ -24,6 +24,7 @@ module button_to_morse (
     input clock,                    // System clock
     input reset,                    // Reset signal
     input button,                   // Button input (active high)
+    input delete,
     output reg [1:0] morse_one,     // Morse code input 1
     output reg [1:0] morse_two,     // Morse code input 2
     output reg [1:0] morse_three,   // Morse code input 3
@@ -32,48 +33,45 @@ module button_to_morse (
     output reg [1:0] morse_six,     // Morse code input 6
     output reg letter_done,         // Indicates that the letter is done
     output reg is_space,
+    output reg is_delete,
     output reg [2:0] morse_index,    // Tracks the current symbol index
     output reg [9:0] counter,
     output reg [9:0] inactivity_counter
 );
 
     localparam one_time_unit = 2; // 0.5 seconds at 100 MHz clock (For sake of 
-    //testbench simulation, length is 5 clock cycles for 10 Hz)
+    //testbench simulation, length is 2 clock cycles
     localparam three_time_units = 5;  // 1.5 seconds at 100 MHz clock (For sake of 
-    //testbench simulation, length is 15 clock cycles for 10 Hz)
+    //testbench simulation, length is 5 clock cycles
     localparam seven_time_units = 13;  // 3.5 seconds at 100 MHz clock (For sake of 
-    //testbench simulation, length is 35 clock cycles for 10 Hz)
+    //testbench simulation, length is 13 clock
 
     //reg [31:0] counter; // Counter for button press duration
     //reg [31:0] inactivity_counter; // Counter for inactivity between button presses
     reg button_prev; // Tracks previous button state for edge detection
     
-    reg [1:0] latched_morse[5:0]; // Stores bits for morse code
+    reg [1:0] latched_morse [5:0]; // Stores bits for morse code
     reg latched_done; // Detects when bits are done being stored
-
-    always @(posedge clock or negedge clock or posedge reset) begin
+    
+    always @(posedge clock or negedge clock or posedge reset) begin        
         if (reset) begin
             // Reset all signals
             counter <= 0;
             inactivity_counter <= 0;
             morse_index <= 0;
-            morse_one <= 2'b00;
-            morse_two <= 2'b00;
-            morse_three <= 2'b00;
-            morse_four <= 2'b00;
-            morse_five <= 2'b00;
-            morse_six <= 2'b00;
+            {morse_one, morse_two, morse_three, morse_four, morse_five, morse_six} <= 0;
             letter_done <= 0;
             button_prev <= 0;
             latched_done <= 0;
             is_space <= 0;
+            is_delete <= 0;
             latched_morse[0] <= 0;
             latched_morse[1] <= 0;
             latched_morse[2] <= 0;
             latched_morse[3] <= 0;
             latched_morse[4] <= 0;
             latched_morse[5] <= 0;
-        end else begin
+        end else begin  
             if (button) begin // Button is pressed
                 // Reset to process new letter          
                 letter_done <= 0;
@@ -107,7 +105,14 @@ module button_to_morse (
                     morse_index <= morse_index + 1; // Increment morse_index for the next symbol
                 end
                 counter <= 0; // Reset counter
-            end else begin                                   
+            end else begin 
+                // if delete button pressed, flag is_delete
+                if (delete) begin
+                    is_delete <= 1;
+                    letter_done <= 0;
+                end else begin
+                    is_delete <= 0;
+                end                                 
                    
                 // Detect when letter is done, code is stored in output
                 if ((inactivity_counter >= three_time_units) && !latched_done && !is_space) begin                   
@@ -151,6 +156,10 @@ module button_to_morse (
         endcase 
     end
     
+    always @ (posedge is_delete) begin
+        inactivity_counter <= 0; //inactivity counter restarts when delete button is pressed
+    end
+           
     always @ (negedge letter_done) begin
         morse_index <= 0;
     end
