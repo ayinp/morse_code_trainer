@@ -31,13 +31,22 @@ module morse_decoder (
     output reg [7:0] ascii_char // ASCII character output
 );
 
+    // Register to hold the last valid character
+    reg [7:0] last_valid_char;
+    
+    initial begin
+        last_valid_char = "-";
+    end
+    
     always @(*) begin
-        // Default: invalid character
-        ascii_char = "?";
+
+        // Default: Hold the last valid character
+        ascii_char = last_valid_char;
     
         // If space is valid, ascii_char = space
         if (is_space) begin
             ascii_char = " ";
+            last_valid_char = ascii_char;
         end else if (letter_done) begin         
     
             // Start traversal of binary tree
@@ -107,6 +116,8 @@ module morse_decoder (
                     end else ascii_char = "M"; // --
                 end else ascii_char = "T"; // -
             end
+            // Update the last valid character when a new letter is done
+            last_valid_char = ascii_char;
         end
     end
 endmodule
