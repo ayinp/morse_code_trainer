@@ -26,7 +26,7 @@ module debouncer(
     output reg clean
 ); 
 
-    parameter max_count = 100000000;
+    parameter max_count = 1000000;
     reg [31:0] counter;
     
     initial begin

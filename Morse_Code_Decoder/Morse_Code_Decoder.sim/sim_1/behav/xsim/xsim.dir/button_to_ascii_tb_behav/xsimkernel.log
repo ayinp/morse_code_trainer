@@ -1,4 +1,7 @@
-Running: xsim.dir/button_to_ascii_tb_behav/xsimk.exe -simmode gui -wdb button_to_ascii_tb_behav.wdb -simrunnum 0 -socket 51108
+Running: xsim.dir/button_to_ascii_tb_behav/xsimk.exe -simmode gui -wdb button_to_ascii_tb_behav.wdb -simrunnum 0 -socket 58018
 Design successfully loaded
-Design Loading Memory Usage: 8384 KB (Peak: 8384 KB)
-Design Loading CPU Usage: 30 ms
+Design Loading Memory Usage: 8896 KB (Peak: 8896 KB)
+Design Loading CPU Usage: 78 ms
+Simulation completed
+Simulation Memory Usage: 9564 KB (Peak: 9564 KB)
+Simulation CPU Usage: 78 ms

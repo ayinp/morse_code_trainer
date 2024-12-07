@@ -5,5 +5,5 @@ Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+ERROR: [VRFC 10-8616] 'button_to_morse' requires 14 arguments [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sim_1/new/button_to_ascii_tb.v:46]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

@@ -34,26 +34,25 @@ module button_to_morse (
     output reg letter_done,         // Indicates that the letter is done
     output reg is_space,
     output reg is_delete,
-    output reg [2:0] morse_index,    // Tracks the current symbol index
-    output reg [9:0] counter,
-    output reg [9:0] inactivity_counter
+    output reg [2:0] morse_index    // Tracks the current symbol index
 );
 
-    localparam one_time_unit = 2; // 0.5 seconds at 100 MHz clock (For sake of 
+    localparam one_time_unit = 1; // 0.5 seconds at 100 MHz clock (For sake of 
     //testbench simulation, length is 2 clock cycles
-    localparam three_time_units = 5;  // 1.5 seconds at 100 MHz clock (For sake of 
+    localparam three_time_units = 2;  // 1.5 seconds at 100 MHz clock (For sake of 
     //testbench simulation, length is 5 clock cycles
-    localparam seven_time_units = 13;  // 3.5 seconds at 100 MHz clock (For sake of 
+    localparam seven_time_units = 6;  // 3.5 seconds at 100 MHz clock (For sake of 
     //testbench simulation, length is 13 clock
 
-    //reg [31:0] counter; // Counter for button press duration
-    //reg [31:0] inactivity_counter; // Counter for inactivity between button presses
+    reg [31:0] inactivity_counter;
+    reg [31:0] counter; // Counter for button press duration
+    
     reg button_prev; // Tracks previous button state for edge detection
     
     reg [1:0] latched_morse [5:0]; // Stores bits for morse code
     reg latched_done; // Detects when bits are done being stored
     
-    always @(posedge clock or negedge clock or posedge reset) begin        
+    always @(posedge clock or posedge reset) begin        
         if (reset) begin
             // Reset all signals
             counter <= 0;
@@ -79,8 +78,8 @@ module button_to_morse (
                 is_space <= 0; 
                 
                 counter <= counter + 1;  // Increment counter
-                //inactivity_counter <= 0;  // Reset inactivity counter
-            end else if (button_prev) begin   // Button released
+                inactivity_counter <= 0;  // Reset inactivity counter
+            end else if (!button && button_prev) begin   // Button released
                 if (counter >= one_time_unit) begin
                     // Determine dot or dash based on press duration
                     if (counter >= three_time_units) begin
@@ -104,55 +103,60 @@ module button_to_morse (
                     end
                     morse_index <= morse_index + 1; // Increment morse_index for the next symbol
                 end
-                counter <= 0; // Reset counter
-            end else begin 
-                // if delete button pressed, flag is_delete
-                if (delete) begin
-                    is_delete <= 1;
-                    letter_done <= 0;
-                end else begin
-                    is_delete <= 0;
-                end                                 
+           end
+                
+           if (!button) begin     
+               // Button inactive
+               inactivity_counter <= inactivity_counter + 1;
+               counter <= 0;
+           end
+                
+            // if delete button pressed, flag is_delete
+            if (delete) begin
+                is_delete <= 1;
+                letter_done <= 0;
+            end else begin
+                is_delete <= 0;
+            end                                 
                    
-                // Detect when letter is done, code is stored in output
-                if ((inactivity_counter >= three_time_units) && !latched_done && !is_space) begin                   
-                    morse_one <= latched_morse[0];
-                    morse_two <= latched_morse[1];
-                    morse_three <= latched_morse[2];
-                    morse_four <= latched_morse[3];
-                    morse_five <= latched_morse[4];
-                    morse_six <= latched_morse[5];
-                    letter_done <= 1; // Detects finished letter
-                    latched_done <= 1; // Detects when latching is done
-                end                                        
-                
-                // Detect space (inactivity exceeds seven_time_units)
-                if (inactivity_counter >= seven_time_units && latched_done) begin
-                    is_space <= 1; // Set is_space signal high
-                    letter_done <= 0; // Reset letter_done to avoid processing new symbols
-                    latched_morse[0] <= 2'b00;
-                    latched_morse[1] <= 2'b00;
-                    latched_morse[2] <= 2'b00;
-                    latched_morse[3] <= 2'b00;
-                    latched_morse[4] <= 2'b00;
-                    latched_morse[5] <= 2'b00;
-                end  
-                
-                // Button inactive
-                inactivity_counter <= inactivity_counter + 1;   
-            end   
+            // Detect when letter is done, code is stored in output
+            if (inactivity_counter >= three_time_units && !latched_done && !is_space) begin                   
+                morse_one <= latched_morse[0];
+                morse_two <= latched_morse[1];
+                morse_three <= latched_morse[2];
+                morse_four <= latched_morse[3];
+                morse_five <= latched_morse[4];
+                morse_six <= latched_morse[5];
+                letter_done = 1; // Detects finished letter
+                latched_done <= 1; // Detects when latching is done
+            end                                        
+            
+            // Detect space (inactivity exceeds seven_time_units)
+            if (inactivity_counter >= seven_time_units && latched_done) begin
+                is_space <= 1; // Set is_space signal high
+                letter_done <= 0; // Reset letter_done to avoid processing new symbols
+                latched_morse[0] <= 2'b00;
+                latched_morse[1] <= 2'b00;
+                latched_morse[2] <= 2'b00;
+                latched_morse[3] <= 2'b00;
+                latched_morse[4] <= 2'b00;
+                latched_morse[5] <= 2'b00;
+            end      
             button_prev <= button; // Update previous button state          
         end
     end
     
     always @ (posedge letter_done) begin
         case (morse_index) 
-        3'b000: begin morse_one <= 0; morse_two <= 0; morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
-        3'b001: begin morse_two <= 0; morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
-        3'b010: begin morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
-        3'b011: begin morse_four <= 0; morse_five <= 0; morse_six <= 0; end
-        3'b100: begin morse_five <= 0; morse_six <= 0; end
-        3'b101: begin morse_six <= 0; end
+            3'b000: begin morse_one <= 0; morse_two <= 0; morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
+            3'b001: begin morse_two <= 0; morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
+            3'b010: begin morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
+            3'b011: begin morse_four <= 0; morse_five <= 0; morse_six <= 0; end
+            3'b100: begin morse_five <= 0; morse_six <= 0; end
+            3'b101: begin morse_six <= 0; end
+        default 
+            begin morse_one <= 0; morse_two <= 0; morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
+            
         endcase 
     end
     
@@ -162,10 +166,6 @@ module button_to_morse (
            
     always @ (negedge letter_done) begin
         morse_index <= 0;
-    end
-    
-    always @ (negedge button) begin
-        inactivity_counter <= 0;
     end
     
 endmodule
