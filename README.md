@@ -42,7 +42,7 @@ This project is designed to change morse code input to a text which will be disp
 
 ### Contribution 💼
 
-This project is an **open source**. If you would like to **contribute** to the project and **develop** this project, please reach out to us!
+This is an **open source project**. If you would like to **contribute** to the project and **develop** this project, please reach out to us!
 
 ---
 
