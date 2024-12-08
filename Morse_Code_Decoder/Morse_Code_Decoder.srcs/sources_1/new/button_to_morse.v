@@ -34,7 +34,7 @@ module button_to_morse (
     output reg letter_done,         // Indicates that the letter is done
     output reg is_space,
     output reg is_delete,
-    output reg [2:0] morse_index    // Tracks the current symbol index
+    output reg [2:0] morse_index    // Tracks the current symbol index 
 );
 
     localparam one_time_unit = 1; // 0.5 seconds at 100 MHz clock (For sake of 
@@ -57,7 +57,7 @@ module button_to_morse (
             // Reset all signals
             counter <= 0;
             inactivity_counter <= 0;
-            morse_index <= 0;
+            morse_index <= 3'b000;
             {morse_one, morse_two, morse_three, morse_four, morse_five, morse_six} <= 0;
             letter_done <= 0;
             button_prev <= 0;
@@ -90,6 +90,10 @@ module button_to_morse (
                             3'b011: latched_morse[3] <= 2'b10;
                             3'b100: latched_morse[4] <= 2'b10;
                             3'b101: latched_morse[5] <= 2'b10;
+                            default begin
+                                latched_morse[0] <= 2'b00; latched_morse[1] <= 2'b00; latched_morse[2] <= 2'b00;
+                                latched_morse[3] <= 2'b00; latched_morse[4] <= 2'b00; latched_morse[5] <= 2'b00;
+                            end
                         endcase
                     end else begin
                         case (morse_index) // Dot
@@ -99,6 +103,10 @@ module button_to_morse (
                             3'b011: latched_morse[3] <= 2'b01;
                             3'b100: latched_morse[4] <= 2'b01;
                             3'b101: latched_morse[5] <= 2'b01;
+                            default begin
+                                latched_morse[0] <= 2'b00; latched_morse[1] <= 2'b00; latched_morse[2] <= 2'b00;
+                                latched_morse[3] <= 2'b00; latched_morse[4] <= 2'b00; latched_morse[5] <= 2'b00;
+                            end
                         endcase
                     end
                     morse_index <= morse_index + 1; // Increment morse_index for the next symbol
@@ -114,6 +122,7 @@ module button_to_morse (
             // if delete button pressed, flag is_delete
             if (delete) begin
                 is_delete <= 1;
+                inactivity_counter <= 0;
                 letter_done <= 0;
             end else begin
                 is_delete <= 0;
@@ -127,14 +136,41 @@ module button_to_morse (
                 morse_four <= latched_morse[3];
                 morse_five <= latched_morse[4];
                 morse_six <= latched_morse[5];
-                letter_done = 1; // Detects finished letter
+                letter_done <= 1; // Detects finished letter
                 latched_done <= 1; // Detects when latching is done
-            end                                        
+                case (morse_index) 
+                    3'b000: begin morse_one <= 2'b00; morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
+                    3'b001: begin morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
+                    3'b010: begin morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
+                    3'b011: begin morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
+                    3'b100: begin morse_five <= 2'b00; morse_six <= 2'b00; end
+                    3'b101: begin morse_six <= 2'b00; end
+                default 
+                    begin morse_one <= 2'b00; morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00;
+                    end
+                endcase
+            end
+            
+            if (letter_done) begin
+//                 case (morse_index) 
+//                    3'b000: begin morse_one <= 2'b00; morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
+//                    3'b001: begin morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
+//                    3'b010: begin morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
+//                    3'b011: begin morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
+//                    3'b100: begin morse_five <= 2'b00; morse_six <= 2'b00; end
+//                    3'b101: begin morse_six <= 2'b00; end
+//                default 
+//                    begin morse_one <= 2'b00; morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00;
+//                    end
+//                endcase
+                morse_index <= 0; 
+            end                                                 
             
             // Detect space (inactivity exceeds seven_time_units)
             if (inactivity_counter >= seven_time_units && latched_done) begin
                 is_space <= 1; // Set is_space signal high
                 letter_done <= 0; // Reset letter_done to avoid processing new symbols
+                morse_index <= 0;
                 latched_morse[0] <= 2'b00;
                 latched_morse[1] <= 2'b00;
                 latched_morse[2] <= 2'b00;
@@ -145,29 +181,6 @@ module button_to_morse (
             button_prev <= button; // Update previous button state          
         end
     end
-    
-    always @ (posedge letter_done) begin
-        case (morse_index) 
-            3'b000: begin morse_one <= 0; morse_two <= 0; morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
-            3'b001: begin morse_two <= 0; morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
-            3'b010: begin morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
-            3'b011: begin morse_four <= 0; morse_five <= 0; morse_six <= 0; end
-            3'b100: begin morse_five <= 0; morse_six <= 0; end
-            3'b101: begin morse_six <= 0; end
-        default 
-            begin morse_one <= 0; morse_two <= 0; morse_three <= 0; morse_four <= 0; morse_five <= 0; morse_six <= 0; end
-            
-        endcase 
-    end
-    
-    always @ (posedge is_delete) begin
-        inactivity_counter <= 0; //inactivity counter restarts when delete button is pressed
-    end
-           
-    always @ (negedge letter_done) begin
-        morse_index <= 0;
-    end
-    
 endmodule
 
 

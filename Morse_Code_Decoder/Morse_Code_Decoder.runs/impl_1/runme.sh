@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/impl_1'
+HD_PWD='C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -42,7 +42,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .init_design.begin.rst
+/bin/touch .write_bitstream.begin.rst
 EAStep vivado -log top_module.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_module.tcl -notrace
 
 

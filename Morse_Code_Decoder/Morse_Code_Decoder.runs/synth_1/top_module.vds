@@ -3,27 +3,28 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Sat Dec  7 18:35:15 2024
-# Process ID: 16748
-# Current directory: X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1
+# Start of session at: Sun Dec  8 12:08:33 2024
+# Process ID: 22084
+# Current directory: C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1
 # Command line: vivado.exe -log top_module.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module.tcl
-# Log file: X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1/top_module.vds
-# Journal file: X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1\vivado.jou
-# Running On        :ECE-PHO115-12
+# Log file: C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1/top_module.vds
+# Journal file: C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1\vivado.jou
+# Running On        :Lorraine
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :19045
-# Processor Detail  :12th Gen Intel(R) Core(TM) i7-12700K
-# CPU Frequency     :3610 MHz
-# CPU Physical cores:12
-# CPU Logical cores :20
-# Host memory       :16853 MB
-# Swap memory       :2550 MB
-# Total Virtual     :19403 MB
-# Available Virtual :6082 MB
+# Operating System  :22621
+# Processor Detail  :11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+# CPU Frequency     :2803 MHz
+# CPU Physical cores:4
+# CPU Logical cores :8
+# Host memory       :12606 MB
+# Swap memory       :9663 MB
+# Total Virtual     :22270 MB
+# Available Virtual :8334 MB
 #-----------------------------------------------------------
 source top_module.tcl -notrace
-Command: read_checkpoint -auto_incremental -incremental X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/utils_1/imports/synth_1/top_module.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/utils_1/imports/synth_1/top_module.dcp for incremental synthesis
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 513.180 ; gain = 200.117
+Command: read_checkpoint -auto_incremental -incremental C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/utils_1/imports/synth_1/top_module.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/utils_1/imports/synth_1/top_module.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top top_module -part xc7a100tcsg324-1
 Starting synth_design
@@ -35,75 +36,70 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 3908
+INFO: [Synth 8-7075] Helper process launched with PID 20420
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1499.406 ; gain = 449.785
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1385.785 ; gain = 449.086
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-11241] undeclared symbol 'button_clean', assumed default net type 'wire' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/top_module.v:58]
-INFO: [Synth 8-6157] synthesizing module 'top_module' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/top_module.v:23]
-INFO: [Synth 8-6157] synthesizing module 'clock_divider' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/clock_div.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'clock_divider' (0#1) [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/clock_div.v:23]
-INFO: [Synth 8-6157] synthesizing module 'debouncer' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/debouncer.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'debouncer' (0#1) [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/debouncer.v:23]
-INFO: [Synth 8-6157] synthesizing module 'button_to_morse' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:23]
-INFO: [Synth 8-155] case statement is not full and has no default [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:86]
-INFO: [Synth 8-155] case statement is not full and has no default [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:95]
-WARNING: [Synth 8-6090] variable 'letter_done' is written by both blocking and non-blocking assignments, entire logic could be removed [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:130]
-WARNING: [Synth 8-6090] variable 'letter_done' is written by both blocking and non-blocking assignments, entire logic could be removed [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:137]
-INFO: [Synth 8-155] case statement is not full and has no default [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:150]
-INFO: [Synth 8-6155] done synthesizing module 'button_to_morse' (0#1) [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:23]
-INFO: [Synth 8-6157] synthesizing module 'morse_decoder' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/morse_decoder.v:22]
-INFO: [Synth 8-6155] done synthesizing module 'morse_decoder' (0#1) [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/morse_decoder.v:22]
-INFO: [Synth 8-6155] done synthesizing module 'top_module' (0#1) [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/top_module.v:23]
+INFO: [Synth 8-6157] synthesizing module 'top_module' [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/top_module.v:23]
+INFO: [Synth 8-6157] synthesizing module 'clock_divider' [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/clock_div.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'clock_divider' (0#1) [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/clock_div.v:23]
+INFO: [Synth 8-6157] synthesizing module 'debouncer' [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/debouncer.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'debouncer' (0#1) [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/debouncer.v:23]
+INFO: [Synth 8-6157] synthesizing module 'button_to_morse' [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'button_to_morse' (0#1) [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:23]
+INFO: [Synth 8-6157] synthesizing module 'morse_decoder' [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/morse_decoder.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'morse_decoder' (0#1) [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/morse_decoder.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'top_module' (0#1) [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/top_module.v:23]
+WARNING: [Synth 8-6014] Unused sequential element latched_morse_reg[5] was removed.  [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:67]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1613.023 ; gain = 563.402
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1499.223 ; gain = 562.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1613.023 ; gain = 563.402
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1499.223 ; gain = 562.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1613.023 ; gain = 563.402
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1499.223 ; gain = 562.523
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1613.023 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1499.223 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [X:/Nexys4DDR_Master.xdc]
-Finished Parsing XDC File [X:/Nexys4DDR_Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [X:/Nexys4DDR_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_module_propImpl.xdc].
+Parsing XDC File [C:/Users/Raine/Nexys4DDR_Master.xdc]
+Finished Parsing XDC File [C:/Users/Raine/Nexys4DDR_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Raine/Nexys4DDR_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_module_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_module_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1640.871 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1603.965 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1640.871 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1603.965 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-327] inferring latch for variable 'last_valid_char_reg' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/morse_decoder.v:45]
+WARNING: [Synth 8-327] inferring latch for variable 'last_valid_char_reg' [C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/morse_decoder.v:45]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:24 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -113,11 +109,12 @@ Detailed RTL Component Info :
 	   2 Input   32 Bit       Adders := 2     
 	   2 Input    3 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 1     
-	                2 Bit    Registers := 6     
+	               32 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 11    
 	                1 Bit    Registers := 8     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 2     
 	   2 Input    8 Bit        Muxes := 7     
 	   3 Input    8 Bit        Muxes := 2     
 	   6 Input    7 Bit        Muxes := 1     
@@ -125,9 +122,11 @@ Detailed RTL Component Info :
 	   4 Input    7 Bit        Muxes := 2     
 	   2 Input    7 Bit        Muxes := 8     
 	   2 Input    6 Bit        Muxes := 1     
-	   2 Input    2 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 2     
+	  15 Input    2 Bit        Muxes := 5     
+	   7 Input    2 Bit        Muxes := 5     
 	   2 Input    1 Bit        Muxes := 18    
-	   7 Input    1 Bit        Muxes := 11    
+	   7 Input    1 Bit        Muxes := 5     
 	   3 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -145,33 +144,27 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'b2/morse_one_reg[1]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'b2/morse_one_reg[0]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
 WARNING: [Synth 8-3332] Sequential element (m2/last_valid_char_reg[7]) is unused and will be removed from module top_module.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -189,130 +182,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:44 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:44 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_index_OBUF[2] with 1st driver pin 'b2/morse_index_reg[2]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_index_OBUF[2] with 2nd driver pin 'b2/morse_index_reg[2]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:165]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_index_OBUF[1] with 1st driver pin 'b2/morse_index_reg[1]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_index_OBUF[1] with 2nd driver pin 'b2/morse_index_reg[1]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:165]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_two[0] with 1st driver pin 'b2/morse_two_reg[0]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_two[0] with 2nd driver pin 'b2/morse_two_reg[0]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_two[1] with 1st driver pin 'b2/morse_two_reg[1]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_two[1] with 2nd driver pin 'b2/morse_two_reg[1]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_index_OBUF[0] with 1st driver pin 'b2/morse_index_reg[0]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_index_OBUF[0] with 2nd driver pin 'b2/morse_index_reg[0]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:165]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_three[0] with 1st driver pin 'b2/morse_three_reg[0]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_three[0] with 2nd driver pin 'b2/morse_three_reg[0]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_three[1] with 1st driver pin 'b2/morse_three_reg[1]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_three[1] with 2nd driver pin 'b2/morse_three_reg[1]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_four[1] with 1st driver pin 'b2/morse_four_reg[1]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_four[1] with 2nd driver pin 'b2/morse_four_reg[1]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_four[0] with 1st driver pin 'b2/morse_four_reg[0]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_four[0] with 2nd driver pin 'b2/morse_four_reg[0]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_five[1] with 1st driver pin 'b2/morse_five_reg[1]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_five[1] with 2nd driver pin 'b2/morse_five_reg[1]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_five[0] with 1st driver pin 'b2/morse_five_reg[0]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:151]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin morse_five[0] with 2nd driver pin 'b2/morse_five_reg[0]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[31] with 1st driver pin 'b2/inactivity_counter_reg[31]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[31] with 2nd driver pin 'b2/inactivity_counter_reg[31]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[30] with 1st driver pin 'b2/inactivity_counter_reg[30]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[30] with 2nd driver pin 'b2/inactivity_counter_reg[30]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[29] with 1st driver pin 'b2/inactivity_counter_reg[29]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[29] with 2nd driver pin 'b2/inactivity_counter_reg[29]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[28] with 1st driver pin 'b2/inactivity_counter_reg[28]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[28] with 2nd driver pin 'b2/inactivity_counter_reg[28]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[27] with 1st driver pin 'b2/inactivity_counter_reg[27]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[27] with 2nd driver pin 'b2/inactivity_counter_reg[27]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[26] with 1st driver pin 'b2/inactivity_counter_reg[26]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[26] with 2nd driver pin 'b2/inactivity_counter_reg[26]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[25] with 1st driver pin 'b2/inactivity_counter_reg[25]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[25] with 2nd driver pin 'b2/inactivity_counter_reg[25]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[24] with 1st driver pin 'b2/inactivity_counter_reg[24]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[24] with 2nd driver pin 'b2/inactivity_counter_reg[24]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[23] with 1st driver pin 'b2/inactivity_counter_reg[23]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[23] with 2nd driver pin 'b2/inactivity_counter_reg[23]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[22] with 1st driver pin 'b2/inactivity_counter_reg[22]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[22] with 2nd driver pin 'b2/inactivity_counter_reg[22]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[21] with 1st driver pin 'b2/inactivity_counter_reg[21]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[21] with 2nd driver pin 'b2/inactivity_counter_reg[21]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[20] with 1st driver pin 'b2/inactivity_counter_reg[20]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[20] with 2nd driver pin 'b2/inactivity_counter_reg[20]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[19] with 1st driver pin 'b2/inactivity_counter_reg[19]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[19] with 2nd driver pin 'b2/inactivity_counter_reg[19]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[18] with 1st driver pin 'b2/inactivity_counter_reg[18]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[18] with 2nd driver pin 'b2/inactivity_counter_reg[18]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[17] with 1st driver pin 'b2/inactivity_counter_reg[17]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[17] with 2nd driver pin 'b2/inactivity_counter_reg[17]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[16] with 1st driver pin 'b2/inactivity_counter_reg[16]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[16] with 2nd driver pin 'b2/inactivity_counter_reg[16]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[15] with 1st driver pin 'b2/inactivity_counter_reg[15]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[15] with 2nd driver pin 'b2/inactivity_counter_reg[15]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[14] with 1st driver pin 'b2/inactivity_counter_reg[14]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[14] with 2nd driver pin 'b2/inactivity_counter_reg[14]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[13] with 1st driver pin 'b2/inactivity_counter_reg[13]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[13] with 2nd driver pin 'b2/inactivity_counter_reg[13]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[12] with 1st driver pin 'b2/inactivity_counter_reg[12]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[12] with 2nd driver pin 'b2/inactivity_counter_reg[12]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[11] with 1st driver pin 'b2/inactivity_counter_reg[11]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[11] with 2nd driver pin 'b2/inactivity_counter_reg[11]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[10] with 1st driver pin 'b2/inactivity_counter_reg[10]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[10] with 2nd driver pin 'b2/inactivity_counter_reg[10]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[9] with 1st driver pin 'b2/inactivity_counter_reg[9]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[9] with 2nd driver pin 'b2/inactivity_counter_reg[9]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[8] with 1st driver pin 'b2/inactivity_counter_reg[8]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[8] with 2nd driver pin 'b2/inactivity_counter_reg[8]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[7] with 1st driver pin 'b2/inactivity_counter_reg[7]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[7] with 2nd driver pin 'b2/inactivity_counter_reg[7]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[6] with 1st driver pin 'b2/inactivity_counter_reg[6]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[6] with 2nd driver pin 'b2/inactivity_counter_reg[6]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[5] with 1st driver pin 'b2/inactivity_counter_reg[5]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[5] with 2nd driver pin 'b2/inactivity_counter_reg[5]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[4] with 1st driver pin 'b2/inactivity_counter_reg[4]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[4] with 2nd driver pin 'b2/inactivity_counter_reg[4]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[3] with 1st driver pin 'b2/inactivity_counter_reg[3]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[3] with 2nd driver pin 'b2/inactivity_counter_reg[3]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[2] with 1st driver pin 'b2/inactivity_counter_reg[2]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[2] with 2nd driver pin 'b2/inactivity_counter_reg[2]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[1] with 1st driver pin 'b2/inactivity_counter_reg[1]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[1] with 2nd driver pin 'b2/inactivity_counter_reg[1]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[0] with 1st driver pin 'b2/inactivity_counter_reg[0]__0/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:59]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin b2/inactivity_counter[0] with 2nd driver pin 'b2/inactivity_counter_reg[0]/Q' [X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v:161]
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|       43|Failed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:44 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:44 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:44 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:44 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -328,44 +228,43 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |BUFG   |     3|
+|1     |BUFG   |     2|
 |2     |CARRY4 |    29|
 |3     |LUT1   |     2|
-|4     |LUT2   |    76|
-|5     |LUT3   |    20|
-|6     |LUT4   |    23|
-|7     |LUT5   |    42|
-|8     |LUT6   |    29|
-|9     |FDCE   |   121|
-|10    |FDRE   |    65|
+|4     |LUT2   |    45|
+|5     |LUT3   |    55|
+|6     |LUT4   |    34|
+|7     |LUT5   |    49|
+|8     |LUT6   |    69|
+|9     |FDCE   |   125|
+|10    |FDRE   |    22|
 |11    |LD     |     7|
 |12    |IBUF   |     4|
 |13    |OBUF   |    12|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:44 . Memory (MB): peak = 1603.965 ; gain = 667.266
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 92 critical warnings and 3 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:21 . Memory (MB): peak = 1640.871 ; gain = 563.402
-Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1640.871 ; gain = 591.250
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:41 . Memory (MB): peak = 1603.965 ; gain = 562.523
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:44 . Memory (MB): peak = 1603.965 ; gain = 667.266
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1640.871 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1603.965 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 36 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1640.871 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1603.965 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 7 instances were transformed.
   LD => LDCE: 7 instances
 
-Synth Design complete | Checksum: c4628b29
+Synth Design complete | Checksum: 347214f9
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 5 Warnings, 92 Critical Warnings and 0 Errors encountered.
+32 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:27 . Memory (MB): peak = 1640.871 ; gain = 1006.680
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1640.871 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1/top_module.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:53 . Memory (MB): peak = 1603.965 ; gain = 1086.426
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1603.965 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1/top_module.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_module_utilization_synth.rpt -pb top_module_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Dec  7 18:35:52 2024...
+INFO: [Common 17-206] Exiting Vivado at Sun Dec  8 12:09:40 2024...

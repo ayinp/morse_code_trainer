@@ -1,15 +1,30 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="lorraine" Host="ECE-PHO115-12" Pid="13420" HostCore="20" HostMemory="016853479424">
+    <Process Command="vivado.bat" Owner="Raine" Host="LORRAINE" Pid="25164" HostCore="8" HostMemory="012606803968">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="lorraine" Host="ECE-PHO115-12" Pid="18208" HostCore="20" HostMemory="016853479424">
+    <Process Command="vivado.bat" Owner="Raine" Host="LORRAINE" Pid="9184" HostCore="8" HostMemory="012606803968">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="lorraine" Host="ECE-PHO115-12" Pid="4792" HostCore="20" HostMemory="016853479424">
+    <Process Command="vivado.bat" Owner="Raine" Host="LORRAINE" Pid="24608" HostCore="8" HostMemory="012606803968">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Raine" Host="LORRAINE" Pid="25588" HostCore="8" HostMemory="012606803968">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Raine" Host="LORRAINE" Pid="20384" HostCore="8" HostMemory="012606803968">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Raine" Host="LORRAINE" Pid="17296" HostCore="8" HostMemory="012606803968">
     </Process>
 </ProcessHandle>

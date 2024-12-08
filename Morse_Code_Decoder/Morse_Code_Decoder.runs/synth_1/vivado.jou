@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Sat Dec  7 18:35:15 2024
-# Process ID: 16748
-# Current directory: X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1
+# Start of session at: Sun Dec  8 12:08:33 2024
+# Process ID: 22084
+# Current directory: C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1
 # Command line: vivado.exe -log top_module.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module.tcl
-# Log file: X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1/top_module.vds
-# Journal file: X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1\vivado.jou
-# Running On        :ECE-PHO115-12
+# Log file: C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1/top_module.vds
+# Journal file: C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1\vivado.jou
+# Running On        :Lorraine
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :19045
-# Processor Detail  :12th Gen Intel(R) Core(TM) i7-12700K
-# CPU Frequency     :3610 MHz
-# CPU Physical cores:12
-# CPU Logical cores :20
-# Host memory       :16853 MB
-# Swap memory       :2550 MB
-# Total Virtual     :19403 MB
-# Available Virtual :6082 MB
+# Operating System  :22621
+# Processor Detail  :11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+# CPU Frequency     :2803 MHz
+# CPU Physical cores:4
+# CPU Logical cores :8
+# Host memory       :12606 MB
+# Swap memory       :9663 MB
+# Total Virtual     :22270 MB
+# Available Virtual :8334 MB
 #-----------------------------------------------------------
 source top_module.tcl -notrace

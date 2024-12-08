@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1'
+HD_PWD='C:/Users/Raine/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
