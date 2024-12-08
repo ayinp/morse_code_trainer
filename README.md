@@ -48,10 +48,20 @@ This project is an **open source**. If you would like to **contribute** to the p
 
 ### Reference (Link) 📄
 
+<details>
+<summary>Morse Code</summary>
+  
+[Morse Code Information](https://www.learnmorsecode.com/)
+</details>
 
+<details>
+<summary>Verilog</summary>
+  
+[Vivado Documentation](https://docs.amd.com/r/2021.1-English/ug896-vivado-ip/Vivado-Design-Suite-Documentation)
+</details>
 
-
-
-
-
-
+<details>
+<summary>Badge</summary>
+  
+[Badges Used](https://github.com/alexandresanlim/Badges4-README.md-Profile)
+</details>
