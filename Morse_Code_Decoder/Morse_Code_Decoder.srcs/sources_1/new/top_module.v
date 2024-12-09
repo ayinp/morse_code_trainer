@@ -21,36 +21,29 @@
 
 
 module top_module(
-    input clock,                    // System clock
-    input reset,                    // Reset signal
-    input button,                   // Button input (active high)
-    input delete,
+    input clock,                            // System clock
+    input reset,                            // Reset signal
+    input button,                           // Button input (active high)
     //input [15:0]check,
-    output reg led_timer,
-    output [2:0] morse_index,
-    //output [7:0] ascii_char, // ASCII character output
-    output [6:0] seg_out,
-    output [7:0] current_display,
-    output [7:0] current_display_check
+    output reg led_timer,                   // Unit timer
+    output [2:0] morse_index,               // Track when symbol is done
+    output [6:0] seg_out,                   // Which segments are on for a character on the display
+    output [7:0] current_display,           // Which of the 8 displays are on
+    output [7:0] current_display_check      // Check the displays that should be in use
 );
 
-    wire [1:0] morse_one, morse_two, morse_three, morse_four, morse_five, morse_six;
+    wire [1:0] morse_one, morse_two, morse_three, morse_four, morse_five;
     wire letter_done;
     wire is_space;
-    wire is_delete;
     wire button_clean;
-    
     wire clk_2Hz;
     
     wire [7:0] ascii_char;
-    
-    clock_divider c1(
-        .clock(clock),
-        .reset(reset),
-        .clk_out(clk_2Hz)        
-    );
 
-    // Simple LED toggle (not synthesizable as is, consider replacing with counter)
+    // Instantiate the clock divider module
+    clock_divider c1(clock, reset, clk_2Hz);
+
+    // LED toggle to control unit timer
     always @(posedge clk_2Hz) begin
         if (reset) begin
             led_timer <= 0;
@@ -58,21 +51,16 @@ module top_module(
             led_timer <= ~led_timer;
         end
     end
-    
-    debouncer d1(
-        .clock(clock),
-        .button(button),
-        .clean(button_clean)
-    );
+     // Instantiate the debouncer module
+    debouncer d1(clock, button, button_clean);
 
     // Instantiate the button to morse module
-    button_to_morse bm1(clk_2Hz, reset, button_clean, delete, morse_one, morse_two, morse_three, morse_four, morse_five, morse_six, letter_done, is_space, is_delete, morse_index);
+    button_to_morse bm1(clk_2Hz, reset, button_clean, morse_one, morse_two, morse_three, morse_four, morse_five, letter_done, is_space, morse_index);
 
     // Instantiate the morse decoder module
-    morse_decoder m2(morse_one, morse_two, morse_three, morse_four, morse_five, morse_six, letter_done, is_space, is_delete, ascii_char);
-    
-    //wire [7:0] new;
-    
+    morse_decoder m2(morse_one, morse_two, morse_three, morse_four, morse_five, letter_done, is_space, ascii_char);
+ 
+    // Instantiate the seven segmentdisplay module
     seven_seg_disp s1(ascii_char, clock, letter_done, reset, seg_out, current_display, current_display_check);
 
 
