@@ -37,12 +37,9 @@ module button_to_morse (
     output reg [2:0] morse_index    // Tracks the current symbol index 
 );
 
-    localparam one_time_unit = 1; // 0.5 seconds at 100 MHz clock (For sake of 
-    //testbench simulation, length is 2 clock cycles
-    localparam three_time_units = 2;  // 1.5 seconds at 100 MHz clock (For sake of 
-    //testbench simulation, length is 5 clock cycles
-    localparam seven_time_units = 6;  // 3.5 seconds at 100 MHz clock (For sake of 
-    //testbench simulation, length is 13 clock
+    localparam one_time_unit = 1; // 0.5 seconds at 100 MHz clock
+    localparam three_time_units = 2;  // 1.5 seconds at 100 MHz clock
+    localparam seven_time_units = 6;  // 3.5 seconds at 100 MHz clock
 
     reg [31:0] inactivity_counter;
     reg [31:0] counter; // Counter for button press duration
@@ -152,17 +149,6 @@ module button_to_morse (
             end
             
             if (letter_done) begin
-//                 case (morse_index) 
-//                    3'b000: begin morse_one <= 2'b00; morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
-//                    3'b001: begin morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
-//                    3'b010: begin morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
-//                    3'b011: begin morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00; end
-//                    3'b100: begin morse_five <= 2'b00; morse_six <= 2'b00; end
-//                    3'b101: begin morse_six <= 2'b00; end
-//                default 
-//                    begin morse_one <= 2'b00; morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; morse_six <= 2'b00;
-//                    end
-//                endcase
                 morse_index <= 0; 
             end                                                 
             
