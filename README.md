@@ -1,6 +1,6 @@
 # EC 311 Final Project
 
-## Project Name: Morse to Text Translator
+## Project Name: Morse Code Trainer
 
 ---
 
