@@ -105,9 +105,7 @@ module seven_seg_disp (
         if (reset) begin
             counter <= 0; // Reset to first display active (leftmost)
             counter_big <= 0;
-            
 
-            
         end else begin
             counter_big <= counter_big +1;
             if (counter_big==10000) begin
@@ -155,36 +153,38 @@ module seven_seg_disp (
     
 
     // Display the corresponding segment on the active display
-    always @(*) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
-            seg_sav[0] = 7'b1111111;
-            seg_sav[1] = 7'b1111111;
-            seg_sav[2] = 7'b1111111;
-            seg_sav[3] = 7'b1111111;
-            seg_sav[4] = 7'b1111111;
-            seg_sav[5] = 7'b1111111;
-            seg_sav[6] = 7'b1111111;
-            seg_sav[7] = 7'b1111111;
+            seg_sav[0] <= 7'b1111111;
+            seg_sav[1] <= 7'b1111111;
+            seg_sav[2] <= 7'b1111111;
+            seg_sav[3] <= 7'b1111111;
+            seg_sav[4] <= 7'b1111111;
+            seg_sav[5] <= 7'b1111111;
+            seg_sav[6] <= 7'b1111111;
+            seg_sav[7] <= 7'b1111111;
         end else begin  
         
         case (current_display)
-            8'b11111110: seg_sav[0] = seg;  // First display active
-            8'b11111100: seg_sav[1] = seg;  // Second display active
-            8'b11111000: seg_sav[2] = seg;  // Third display active
-            8'b11110000: seg_sav[3] = seg;  // Fourth display active
-            8'b11100000: seg_sav[4] = seg;  // Fifth display active
-            8'b11000000: seg_sav[5] = seg;  // Sixth display active
-            8'b10000000: seg_sav[6] = seg;  // Seventh display active
-            8'b00000000: seg_sav[7] = seg;  // Eighth display active
-            default: seg_sav[7] = 7'b1111111;  // Default to blank
+            8'b11111110: seg_sav[0] <= seg;  // First display active
+            8'b11111100: seg_sav[1] <= seg;  // Second display active
+            8'b11111000: seg_sav[2] <= seg;  // Third display active
+            8'b11110000: seg_sav[3] <= seg;  // Fourth display active
+            8'b11100000: seg_sav[4] <= seg;  // Fifth display active
+            8'b11000000: seg_sav[5] <= seg;  // Sixth display active
+            8'b10000000: seg_sav[6] <= seg;  // Seventh display active
+            8'b00000000: seg_sav[7] <= seg;  // Eighth display active
+            default: seg_sav[7] <= 7'b1111111;  // Default to blank
         endcase
         
         end
     end
 
-//    // Initialize the display to show the first letter on the first display
-//    initial begin
-//        current_display = 8'b01111111; // Start with the first display active
-//    end
-
 endmodule
+
+
+
+
+
+
+
