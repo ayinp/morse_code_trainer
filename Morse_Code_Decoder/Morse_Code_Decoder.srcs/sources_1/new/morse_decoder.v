@@ -25,7 +25,6 @@ module morse_decoder (
     input [1:0] morse_three, // . = 01, - = 10
     input [1:0] morse_four,  // . = 01, - = 10
     input [1:0] morse_five,  // . = 01, - = 10
-    input [1:0] morse_six,   // . = 01, - = 10
     input letter_done,       // Detect if letter is done
     input is_space,          // Detects a space
     input is_delete,
@@ -58,31 +57,35 @@ module morse_decoder (
                     if (morse_three == 2'b01) begin // Dot (S branch)
                         if (morse_four == 2'b01) begin // Dot (H branch)
                             if (morse_five == 2'b01) begin // Dot
-                                ascii_char = "5"; // ......
-                            end else if (morse_five == 2'b10) ascii_char = "4"; // .....-
+                                ascii_char = "5"; // .....
+                            end else if (morse_five == 2'b10) // Dash
+                                ascii_char = "4"; // ....-
                             else ascii_char = "H"; // ....
-                        end else if (morse_four == 2'b10) // ...-
-                            if (morse_five == 2'b01) begin // Dot
-                                if (morse_six == 2'b01) ascii_char = " "; // ......
-                            end else if (morse_five == 2'b10) ascii_char = "3"; // .....-
-                            else ascii_char = "V"; // ....
+                        end else if (morse_four == 2'b10) // Dash ...-
+                            if (morse_five == 2'b01) begin // Dot 
+                                ascii_char = " "; // ...-. (invalid)
+                            end else if (morse_five == 2'b10) 
+                                ascii_char = "3"; // ...--
+                            else ascii_char = "V"; // ...-
                         else ascii_char = "S"; // ...
                     end else if (morse_three == 2'b10) begin // Dash (U branch)
-                        if (morse_four == 2'b01) ascii_char = "F"; // ..-.
-                        else if (morse_four == 2'b10) ascii_char = "2"; // ..---
+                        if (morse_four == 2'b01) 
+                            ascii_char = "F"; // ..-.
+                        else if (morse_four == 2'b10) 
+                            ascii_char = "2"; // ..---
                         else ascii_char = "U"; // ..-
                     end else ascii_char = "I"; // ..
-                end else if (morse_two == 2'b10) begin // Dash (A branch)
-                    if (morse_three == 2'b01) begin // Dot (R branch)
-                        if (morse_four == 2'b01) ascii_char = "L"; // .-..
+                end else if (morse_two == 2'b10) begin // Dash (A branch) .-
+                    if (morse_three == 2'b01) begin // Dot (R branch) .-.
+                        if (morse_four == 2'b01) 
+                            ascii_char = "L"; // .-..
                         else ascii_char = "R"; // .-.
                     end else if (morse_three == 2'b10) begin // Dash (W branch)
                         if (morse_four == 2'b01) ascii_char = "P"; // .--.
                         else if (morse_four == 2'b10) 
                             if (morse_five == 2'b10)
-                                ascii_char = "1"; // .---
-                            else
-                                ascii_char = "J";
+                                ascii_char = "1"; // .----
+                            else ascii_char = "J";
                         else ascii_char = "W"; // .--
                     end else ascii_char = "A"; // .-
                 end else ascii_char = "E"; // .
@@ -91,29 +94,36 @@ module morse_decoder (
                     if (morse_three == 2'b01) begin // Dot (D branch)
                         if (morse_four == 2'b01) 
                             if (morse_five == 2'b01)
-                                ascii_char = "6"; // -...
-                            else
-                                ascii_char = "B";
+                                ascii_char = "6"; // -....
+                            else ascii_char = "B"; // -...
                         else if (morse_four == 2'b10) ascii_char = "X"; // -..-
                         else ascii_char = "D"; // -..
                     end else if (morse_three == 2'b10) begin // Dash (K branch)
-                        if (morse_four == 2'b01) ascii_char = "C"; // -.-.
-                        else if (morse_four == 2'b10) ascii_char = "Y";
+                        if (morse_four == 2'b01) 
+                            ascii_char = "C"; // -.-.
+                        else if (morse_four == 2'b10) 
+                            ascii_char = "Y"; //-.--
                         else ascii_char = "K"; // -.-
                     end else ascii_char = "N"; // -.
                 end else if (morse_two == 2'b10) begin // Dash (M branch)
                     if (morse_three == 2'b01) begin // Dot (G branch)
                         if (morse_four == 2'b01) 
                             if (morse_five == 2'b01)
-                                ascii_char = "7";
-                            else
-                                ascii_char = "Z"; // --..
-                        else if (morse_four == 2'b10) ascii_char = "Q"; // --...
+                                ascii_char = "7"; // --...
+                            else ascii_char = "Z"; // --..
+                        else if (morse_four == 2'b10) 
+                            ascii_char = "Q"; // --...
                         else ascii_char = "G"; // --.
                     end else if (morse_three == 2'b10) begin // Dash (O branch)
-                        if (morse_four == 2'b01) ascii_char = "8"; // ---..
+                        if (morse_four == 2'b01) begin
+                            if (morse_five == 2'b01)
+                                ascii_char = "8"; // ---..
+                            else if (morse_five == 2'b10)
+                                ascii_char = "8"; //(invalid)
+                            else ascii_char = " " //(invalid) ---.
                         else if (morse_four == 2'b10) begin
-                            if (morse_five == 2'b10) ascii_char = "0"; // -----
+                            if (morse_five == 2'b10) 
+                                ascii_char = "0"; // -----
                             else ascii_char = "9"; // ----.
                         end else ascii_char = "O"; // ---
                     end else ascii_char = "M"; // --
