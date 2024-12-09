@@ -46,7 +46,7 @@ module morse_decoder (
     
         // If space is valid, ascii_char = space
         if (is_space) begin
-            ascii_char = " ";
+            ascii_char = ascii_char;
             last_valid_char = ascii_char;
         end else if (is_delete) begin
             ascii_char = 8'h7f;
