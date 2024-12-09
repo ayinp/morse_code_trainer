@@ -27,7 +27,7 @@ module clock_divider(
 );
 
     // 50 million counter value for 2 Hz clock (100 MHz / 2 Hz = 50 million)
-    localparam DIVISOR = 50_000_000;
+    localparam DIVISOR = 25_000_000;
 
     reg [31:0] counter; // 32-bit counter to count up to 50 million
 
