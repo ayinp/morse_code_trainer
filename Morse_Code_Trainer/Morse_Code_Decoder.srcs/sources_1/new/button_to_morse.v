@@ -30,7 +30,7 @@ module button_to_morse (
     output reg [1:0] morse_four,    // Morse code input 4
     output reg [1:0] morse_five,    // Morse code input 5
     output reg letter_done,         // Indicates that the letter is done
-    output reg is_space,
+    //output reg is_space,
     output reg [2:0] morse_index    // Tracks the current symbol index 
 );
 
@@ -56,7 +56,7 @@ module button_to_morse (
             letter_done <= 0;
             button_prev <= 0;
             latched_done <= 0;
-            is_space <= 0;
+            //is_space <= 0;
             latched_morse[0] <= 0;
             latched_morse[1] <= 0;
             latched_morse[2] <= 0;
@@ -67,7 +67,7 @@ module button_to_morse (
                 // Reset to process new letter          
                 letter_done <= 0;
                 latched_done <= 0;
-                is_space <= 0; 
+                //is_space <= 0; 
                 
                 counter <= counter + 1;  // Increment counter
                 inactivity_counter <= 0;  // Reset inactivity counter
@@ -109,8 +109,29 @@ module button_to_morse (
                counter <= 0;
            end                               
                    
+//            // Detect when letter is done, code is stored in output
+//            if (inactivity_counter >= three_time_units && !latched_done && !is_space) begin                   
+//                morse_one <= latched_morse[0];
+//                morse_two <= latched_morse[1];
+//                morse_three <= latched_morse[2];
+//                morse_four <= latched_morse[3];
+//                morse_five <= latched_morse[4];
+//                letter_done <= 1; // Detects finished letter
+//                latched_done <= 1; // Detects when latching is done
+//                case (morse_index) 
+//                    3'b000: begin morse_one <= 2'b00; morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; end
+//                    3'b001: begin morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; end
+//                    3'b010: begin morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; end
+//                    3'b011: begin morse_four <= 2'b00; morse_five <= 2'b00; end
+//                    3'b100: begin morse_five <= 2'b00; end
+//                default 
+//                    begin morse_one <= 2'b00; morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00;
+//                    end
+//                endcase
+//            end
+            
             // Detect when letter is done, code is stored in output
-            if (inactivity_counter >= three_time_units && !latched_done && !is_space) begin                   
+            if (inactivity_counter >= three_time_units && !latched_done) begin                   
                 morse_one <= latched_morse[0];
                 morse_two <= latched_morse[1];
                 morse_three <= latched_morse[2];
@@ -134,17 +155,17 @@ module button_to_morse (
                 morse_index <= 0; 
             end                                                 
             
-            // Detect space (inactivity exceeds seven_time_units)
-            if (inactivity_counter >= seven_time_units && latched_done) begin
-                is_space <= 1; // Set is_space signal high
-                letter_done <= 0; // Reset letter_done to avoid processing new symbols
-                morse_index <= 0;
-                latched_morse[0] <= 2'b00;
-                latched_morse[1] <= 2'b00;
-                latched_morse[2] <= 2'b00;
-                latched_morse[3] <= 2'b00;
-                latched_morse[4] <= 2'b00;
-            end      
+//            // Detect space (inactivity exceeds seven_time_units)
+//            if (inactivity_counter >= seven_time_units && latched_done) begin
+//                is_space <= 1; // Set is_space signal high
+//                letter_done <= 0; // Reset letter_done to avoid processing new symbols
+//                morse_index <= 0;
+//                latched_morse[0] <= 2'b00;
+//                latched_morse[1] <= 2'b00;
+//                latched_morse[2] <= 2'b00;
+//                latched_morse[3] <= 2'b00;
+//                latched_morse[4] <= 2'b00;
+//            end      
             button_prev <= button; // Update previous button state          
         end
     end
