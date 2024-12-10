@@ -36,22 +36,21 @@ module top_module(
 );
 
     wire [1:0] morse_one, morse_two, morse_three, morse_four, morse_five;
-    wire letter_done;
-    //wire is_space;
-    wire button_clean;
-    wire clk_out;
+    wire letter_done;  //Detect when letter is done
+    wire button_clean;  //Clean button signal
+    wire clk_out; // Slow clock
 
     wire [7:0] ascii_char;
 
     // Instantiate the clock divider module
     clock_div c1(clock, one_sec_unit, half_sec_unit, quarter_sec_unit, reset, clk_out);
-    
+
+    // LED toggle to control unit timer
     initial begin
         led_timer[0] <= 0;
         led_timer[1] <= 1;
     end
-    
-    // LED toggle to control unit timer
+
     always @(posedge clk_out) begin
         if (reset) begin
             led_timer[0] <= 0;
