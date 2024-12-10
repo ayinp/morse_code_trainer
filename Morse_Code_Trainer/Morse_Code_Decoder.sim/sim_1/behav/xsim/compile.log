@@ -1,8 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/button_to_morse.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module button_to_morse
-INFO: [VRFC 10-2263] Analyzing Verilog file "X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sources_1/new/morse_decoder.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module morse_decoder
-INFO: [VRFC 10-2263] Analyzing Verilog file "X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.srcs/sim_1/new/button_to_ascii_tb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module button_to_ascii_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "X:/Desktop/morse_code_translator/Morse_Code_Decoder/Morse_Code_Decoder.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
