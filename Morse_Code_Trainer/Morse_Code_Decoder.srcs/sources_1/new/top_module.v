@@ -25,9 +25,9 @@ module top_module(
     input reset,                            // Reset signal
     input button,                           // Button input (active high)
     //input [15:0]check,
-    input quarter_sec_unit,
-    input half_sec_unit,
-    input tenth_sec_unit,
+    input one_sec_unit,                     // Switch input for 1.0s time unit
+    input half_sec_unit,                    // Switch input for 0.5s time unit
+    input quarter_sec_unit,                 // Switch input for 0.25s time unit
     output reg [1:0] led_timer,             // Unit timer
     output [2:0] morse_index,               // Track when symbol is done
     output [6:0] seg_out,                   // Which segments are on for a character on the display
