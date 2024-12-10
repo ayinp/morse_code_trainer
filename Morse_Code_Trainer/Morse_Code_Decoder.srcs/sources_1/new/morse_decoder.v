@@ -26,7 +26,8 @@ module morse_decoder (
     input [1:0] morse_four,  // . = 01, - = 10
     input [1:0] morse_five,  // . = 01, - = 10
     input letter_done,       // Detect if letter is done
-    input is_space,          // Detects a space
+    input reset,
+    //input is_space,          // Detects a space
     output reg [7:0] ascii_char // ASCII character output
 );
 
@@ -38,14 +39,16 @@ module morse_decoder (
     end
     
     always @(*) begin
-
         // Default: Hold the last valid character
         ascii_char = last_valid_char;
-    
-        // If space is valid, ascii_char = space
-        if (is_space) begin
-            ascii_char = ascii_char;
-            last_valid_char = ascii_char;
+        
+        if (reset) begin
+            last_valid_char = "-";
+//        // If space is valid, ascii_char = space
+//        if (is_space) begin
+//            ascii_char = ascii_char;
+//            last_valid_char = ascii_char;
+//        end else if (letter_done) begin
         end else if (letter_done) begin         
             // Start traversal of binary tree
             if (morse_one == 2'b01) begin // Dot (E branch)
