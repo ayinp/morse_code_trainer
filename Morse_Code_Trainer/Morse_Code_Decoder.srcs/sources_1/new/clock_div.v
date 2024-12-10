@@ -20,34 +20,42 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module clock_divider(
-    input clock,            // 100 MHz input clock
-    input quarter_sec_unit, // Unit time: 1/4 s
-    input half_sec_unit,    // Unit time: 1/2 s
-    input tenth_sec_unit,   // Unit time: 1/10 s
+module clock_div(
+    input clock,           // 100 MHz input clock
+    input one_sec_unit,    // Select 2 Hz clock
+    input half_sec_unit, // Select 4 Hz clock
+    input quarter_sec_unit,   // Select 10 Hz clock
     input reset,            // Reset signal
     output reg clk_out      // Output clock
 );
 
-    reg [31:0] divisor;    // Divisor value
+    // Parameters for divisors
+    localparam QUARTER_SEC_DIV   = 12_500_000; // 10 Hz
+    localparam HALF_SEC_DIV = 25_000_000; // 4 Hz
+    localparam ONE_SEC_DIV    = 50_000_000; // 2 Hz
+    localparam DEFAULT_DIV     = 100_000_000; // 1 Hz (fallback)
+
+    reg [31:0] divisor;    // Selected divisor value
     reg [31:0] counter;    // 32-bit counter
 
+    // Determine divisor based on inputs
     always @(*) begin
-        // Select the divisor based on the inputs
-        if (quarter_sec_unit)
-            divisor = 25_000_000;    // 4 Hz clock
-        else if (half_sec_unit)
-            divisor = 100_000_000;    // 2 Hz clock
-        else if (tenth_sec_unit)
-            divisor = 10_000_000;    // 10 Hz clock
+        // Prioritize inputs to prevent conflicts
+        if (half_sec_unit && !one_sec_unit && !quarter_sec_unit)
+            divisor = HALF_SEC_DIV;  // 4 Hz (0.25s)
+        else if (one_sec_unit && !half_sec_unit && !quarter_sec_unit)
+            divisor = ONE_SEC_DIV;     // 2 Hz (0.5s)
+        else if (quarter_sec_unit && !half_sec_unit && !one_sec_unit)
+            divisor = QUARTER_SEC_DIV;    // 10 Hz (1s)
         else
-            divisor = 50_000_000;   // Default is 1 Hz clock
+            divisor = DEFAULT_DIV;      // Default: 1 Hz (2s)
     end
 
+    // Clock divider logic
     always @(posedge clock or posedge reset) begin
         if (reset) begin
-            counter <= 0;     // Reset the counter
-            clk_out <= 0;     // Reset the output clock
+            counter <= 0;         // Reset the counter
+            clk_out <= 0;         // Reset the output clock
         end else begin
             if (counter == divisor - 1) begin
                 counter <= 0;         // Reset the counter
@@ -59,4 +67,8 @@ module clock_divider(
     end
 
 endmodule
+
+
+
+
 
