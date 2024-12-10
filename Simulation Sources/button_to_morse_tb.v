@@ -30,7 +30,7 @@ module button_to_morse_tb;
     wire [1:0] morse_four;     // Morse code output
     wire [1:0] morse_five;     // Morse code output
     wire letter_done;          // Letter done indicator
-    wire [2:0] morse_index;    
+    wire [2:0] morse_index;    // Tracks current symbol index
     
     // Instantiate the button_to_morse module
     button_to_morse b1(clock, reset, button, morse_one, morse_two, morse_three, morse_four, morse_five, letter_done, morse_index);
