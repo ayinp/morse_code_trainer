@@ -35,7 +35,7 @@ module button_to_morse_tb;
     // Instantiate the button_to_morse module
     button_to_morse b1(clock, reset, button, morse_one, morse_two, morse_three, morse_four, morse_five, letter_done, morse_index);
 
-    // Create a slower clock, 10 Hz (100 ms period)
+    // Create a slower clock
     always begin
         #1 clock = ~clock;  // 10 Hz clock period
     end
