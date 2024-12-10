@@ -23,25 +23,23 @@
 module button_to_ascii_tb(
     );
     
-    reg clock;                 // 10 Hz clock
-    reg reset;                 // Reset signal
-    reg button;                // Button signal (active high)
-    wire [1:0] morse_one;      // Morse code output
-    wire [1:0] morse_two;      // Morse code output
-    wire [1:0] morse_three;    // Morse code output
-    wire [1:0] morse_four;     // Morse code output
-    wire [1:0] morse_five;     // Morse code output
-    wire letter_done;          // Letter done indicator
-    wire [2:0] morse_index;
-    //wire [31:0] inactivity_counter;
-    //wire [31:0] counter;
-    wire [7:0] ascii_char;
+    reg clock;                         // 10 Hz clock
+    reg reset;                         // Reset signal
+    reg button;                        // Button signal (active high)
+    wire [1:0] morse_one;              // Morse code output
+    wire [1:0] morse_two;              // Morse code output
+    wire [1:0] morse_three;            // Morse code output
+    wire [1:0] morse_four;             // Morse code output
+    wire [1:0] morse_five;             // Morse code output
+    wire letter_done;                  // Letter done indicator
+    wire [2:0] morse_index;            // Track current symbol index
+    wire [7:0] ascii_char;             // 8-bit ASCII code
     
     // Instantiate the button_to_morse module
     button_to_morse b1(clock, reset, button, morse_one, morse_two, morse_three, morse_four, morse_five, letter_done, morse_index);
     morse_decoder m1(morse_one, morse_two, morse_three, morse_four, morse_five, letter_done, reset, ascii_char);
 
-    // Create a slower clock, for example, 10 Hz (100 ms period)
+    // Create a slower clock
     always begin
         #10 clock = ~clock;  // 10 Hz clock period
     end
