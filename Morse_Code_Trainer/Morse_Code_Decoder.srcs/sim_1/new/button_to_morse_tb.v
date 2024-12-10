@@ -29,13 +29,11 @@ module button_to_morse_tb;
     wire [1:0] morse_three;    // Morse code output
     wire [1:0] morse_four;     // Morse code output
     wire [1:0] morse_five;     // Morse code output
-    wire [1:0] morse_six;      // Morse code output
     wire letter_done;          // Letter done indicator
-    wire is_space;
     wire [2:0] morse_index;    
     
     // Instantiate the button_to_morse module
-    button_to_morse b1(clock, reset, button, morse_one, morse_two, morse_three, morse_four, morse_five, morse_six, letter_done, is_space, morse_index);
+    button_to_morse b1(clock, reset, button, morse_one, morse_two, morse_three, morse_four, morse_five, letter_done, morse_index);
 
     // Create a slower clock, 10 Hz (100 ms period)
     always begin
