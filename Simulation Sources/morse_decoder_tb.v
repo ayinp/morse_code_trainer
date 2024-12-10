@@ -22,9 +22,9 @@
 module morse_decoder_tb(
     );
     
-    reg [1:0] morse_one, morse_two, morse_three, morse_four, morse_five;
-    reg letter_done;
-    wire [7:0] ascii_char;
+    reg [1:0] morse_one, morse_two, morse_three, morse_four, morse_five;  // Morse Outputs
+    reg letter_done;  // Detect when letter is done
+    wire [7:0] ascii_char;  // 8-bit ASCII code
 
     // Instantiate the morse_decoder module
     morse_decoder md1(morse_one, morse_two, morse_three, morse_four, morse_five, letter_done, reset, ascii_char);
@@ -35,7 +35,6 @@ module morse_decoder_tb(
         morse_four = 2'b00; morse_five = 2'b00;
         letter_done = 1;
     
-        // Wait for global reset
         #10;
     
         // Letters A-Z
