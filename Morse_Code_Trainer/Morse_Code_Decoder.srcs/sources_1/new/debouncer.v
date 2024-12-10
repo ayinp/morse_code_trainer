@@ -20,10 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module debouncer(
-    input wire clock,
-    input wire button,
-    output reg clean
+module debouncer (
+    input wire clock,   // 100MHz clock signal
+    input wire button,  // Noisy button
+    output reg clean    // Clean button
 ); 
 
     parameter max_count = 1000000;
