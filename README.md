@@ -36,7 +36,7 @@ This project is designed to change morse code input to a text which will be disp
 
 ### Features (Demo Video) 💻
 
-[Presentation](https://docs.google.com/presentation/d/1DL2rR3baUBqpqS7nncofHPt456DCiQLeRZ_5G-_zMU0/edit?usp=sharing).
+
 
 ---
 
