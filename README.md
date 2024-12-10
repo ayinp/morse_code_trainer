@@ -32,12 +32,27 @@ This project is designed to change morse code input to a text which will be disp
 
 ---
 
-### Overview of what the code does ⚙️
+### Overview of what the module does ⚙️
 
-![7 Segment Display](https://github.com/user-attachments/assets/e1b5d198-b18b-4b07-9361-414329291dfc)
-
+- **Clock Divider:**
+  - A
+- **Debounder:**
+  - A
+- **Button to Morse:**
+  - A
+- **Morse Decoder:**
+  - A
+- **7 Segment Display:**
+  - A
+- **FPGA:**
+  - A
 
 ![Block Diagram](https://github.com/user-attachments/assets/720cb89d-cf42-4faa-a24b-caba0f36659e)
+
+
+This is how the 7 Segment Display will show each of the letters and numbers on the display:
+
+![7 Segment Display](https://github.com/user-attachments/assets/e1b5d198-b18b-4b07-9361-414329291dfc)
 
 ---
 
