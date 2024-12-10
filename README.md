@@ -30,7 +30,8 @@ This project is designed to change morse code input to a text which will be disp
 
 ### Overview of what the code does ⚙️
 
-![7 Segment Display](https://github.com/user-attachments/assets/7eecfccb-f94e-4952-b30a-9871299064d3)
+![7 Segment Display](https://github.com/user-attachments/assets/e1b5d198-b18b-4b07-9361-414329291dfc)
+
 
 ![Block Diagram](https://github.com/user-attachments/assets/720cb89d-cf42-4faa-a24b-caba0f36659e)
 
