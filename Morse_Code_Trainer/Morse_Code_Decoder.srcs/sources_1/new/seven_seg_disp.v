@@ -80,12 +80,14 @@ module seven_seg_disp (
             "X": seg = 7'b1001000; // x (approximated)
             "Y": seg = 7'b1000100; // y
             "Z": seg = 7'b0010010; // z
+            
+             8'b00101101: seg = 7'b1111110;
 
-            // Space
-            " ": seg = 7'b1110000; // Blank
+//            // Space
+//            " ": seg = 7'b1111110; // Blank
             
             // Default to blank
-            default: seg = 7'b1111111;
+            default: seg = 7'b1111110;
         endcase
     end
 
