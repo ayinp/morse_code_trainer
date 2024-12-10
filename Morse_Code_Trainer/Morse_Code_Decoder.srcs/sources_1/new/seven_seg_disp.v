@@ -21,20 +21,18 @@
 
 
 module seven_seg_disp (
-    input [7:0] ascii_char,      // ASCII character input
-    input clk,
-    input wire letter_done,      // Signal that a letter is done (to shift to the next display)
-    input wire reset,            // Reset signal to reset the current display to the first display
-    output reg [6:0] seg_out,    // Seven-segment output for the active display
+    input [7:0] ascii_char,               // ASCII character input
+    input clock,                          // Clock signal
+    input wire letter_done,               // Signal that a letter is done to shift to the next display
+    input wire reset,                     // Reset signal
+    output reg [6:0] seg_out,             // Seven-segment output for the active display
     output reg [7:0] current_display_out, // 8-bit register to track which displays are active
-    output reg [7:0] current_display
+    output reg [7:0] current_display      // 8-bit register used to turn on/off displays
 );
 
-    reg [6:0] seg;  // Temporary register to hold the segment pattern
-    
-    reg [6:0] seg_sav [7:0];
-    
-    reg [2:0] counter;
+    reg [6:0] seg;  // Temporary register to hold the segment pattern    
+    reg [6:0] seg_sav [7:0]; // store segment patter for each display
+    reg [2:0] counter; 
     reg [31:0] counter_big;
 
     // 7-segment encoding for characters
@@ -53,7 +51,7 @@ module seven_seg_disp (
             "8": seg = 7'b0000000; // 8
             "9": seg = 7'b0000100; // 9
             
-            // Lowercase letters
+            // Letters
             "A": seg = 7'b0001000; // a
             "B": seg = 7'b1100000; // b
             "C": seg = 7'b1110010; // c
@@ -64,27 +62,24 @@ module seven_seg_disp (
             "H": seg = 7'b1101000; // h
             "I": seg = 7'b1101111; // i
             "J": seg = 7'b1000111; // j
-            "K": seg = 7'b0101000; // k (approximated)
+            "K": seg = 7'b0101000; // k 
             "L": seg = 7'b1110001; // l
-            "M": seg = 7'b0001001; // m (approximated)
+            "M": seg = 7'b0001001; // m 
             "N": seg = 7'b1101010; // n
             "O": seg = 7'b1100010; // o
             "P": seg = 7'b0011000; // p
-            "Q": seg = 7'b0001100; // q (approximated)
+            "Q": seg = 7'b0001100; // q 
             "R": seg = 7'b1111010; // r
             "S": seg = 7'b0100100; // s
             "T": seg = 7'b1110000; // t
             "U": seg = 7'b1100011; // u
-            "V": seg = 7'b1100011; // v (same as u)
-            "W": seg = 7'b1000001; // w (approximated)
-            "X": seg = 7'b1001000; // x (approximated)
+            "V": seg = 7'b1100111; // v 
+            "W": seg = 7'b1000001; // w 
+            "X": seg = 7'b1001000; // x 
             "Y": seg = 7'b1000100; // y
             "Z": seg = 7'b0010010; // z
             
              8'b00101101: seg = 7'b1111110;
-
-//            // Space
-//            " ": seg = 7'b1111110; // Blank
             
             // Default to blank
             default: seg = 7'b1111110;
@@ -101,9 +96,7 @@ module seven_seg_disp (
         end
     end
     
-    
-    
-   always @(posedge clk or posedge reset) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
             counter <= 0; // Reset to first display active (leftmost)
             counter_big <= 0;
@@ -147,15 +140,13 @@ module seven_seg_disp (
                 current_display_out <= 8'b01111111;
                 seg_out <= seg_sav[7];
             end
-            
             endcase
-
         end
     end
     
 
     // Display the corresponding segment on the active display
-    always @(posedge clk or posedge reset) begin
+    always @(posedge clock or posedge reset) begin
         if (reset) begin
             seg_sav[0] <= 7'b1111111;
             seg_sav[1] <= 7'b1111111;
