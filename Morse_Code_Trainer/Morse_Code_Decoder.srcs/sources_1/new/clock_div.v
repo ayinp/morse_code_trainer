@@ -21,34 +21,35 @@
 
 
 module clock_div(
-    input clock,           // 100 MHz input clock
-    input one_sec_unit,    // Select 2 Hz clock
-    input half_sec_unit, // Select 4 Hz clock
-    input quarter_sec_unit,   // Select 10 Hz clock
-    input reset,            // Reset signal
-    output reg clk_out      // Output clock
+    input clock,               // 100 MHz input clock
+    input one_sec_unit,        // Select 2 Hz clock
+    input half_sec_unit,       // Select 4 Hz clock
+    input quarter_sec_unit,    // Select 8 Hz clock
+    input reset,               // Reset signal
+    output reg clk_out         // Output clock
 );
 
     // Parameters for divisors
-    localparam QUARTER_SEC_DIV   = 12_500_000; // 10 Hz
+    localparam ONE_SEC_DIV = 50_000_000; // 2 Hz
     localparam HALF_SEC_DIV = 25_000_000; // 4 Hz
-    localparam ONE_SEC_DIV    = 50_000_000; // 2 Hz
-    localparam DEFAULT_DIV     = 100_000_000; // 1 Hz (fallback)
+    localparam QUARTER_SEC_DIV = 12_500_000; // 8 Hz
+    localparam DEFAULT_DIV = 100_000_000; // 1 Hz (fallback)
 
     reg [31:0] divisor;    // Selected divisor value
     reg [31:0] counter;    // 32-bit counter
 
+    one_sec_unit && !half_sec_unit && !quarter_sec_unit
     // Determine divisor based on inputs
     always @(*) begin
         // Prioritize inputs to prevent conflicts
-        if (half_sec_unit && !one_sec_unit && !quarter_sec_unit)
-            divisor = HALF_SEC_DIV;  // 4 Hz (0.25s)
-        else if (one_sec_unit && !half_sec_unit && !quarter_sec_unit)
-            divisor = ONE_SEC_DIV;     // 2 Hz (0.5s)
+        if (one_sec_unit && !half_sec_unit && !quarter_sec_unit)
+            divisor = ONE_SEC_DIV; // 2 Hz (1.0s)
+        else if (half_sec_unit && !one_sec_unit && !quarter_sec_unit)
+            divisor = HALF_SEC_DIV; // 4 Hz (0.5s)
         else if (quarter_sec_unit && !half_sec_unit && !one_sec_unit)
-            divisor = QUARTER_SEC_DIV;    // 10 Hz (1s)
+            divisor = QUARTER_SEC_DIV; // 8 Hz (0.25a)
         else
-            divisor = DEFAULT_DIV;      // Default: 1 Hz (2s)
+            divisor = DEFAULT_DIV; // Default: 1 Hz (2s)
     end
 
     // Clock divider logic
