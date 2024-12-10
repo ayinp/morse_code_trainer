@@ -34,11 +34,12 @@ module button_to_morse (
     output reg [2:0] morse_index    // Tracks the current symbol index 
 );
 
-    localparam one_time_unit = 1; // 0.5 seconds at 100 MHz clock
-    localparam three_time_units = 2;  // 1.5 seconds at 100 MHz clock
-    localparam seven_time_units = 6;  // 3.5 seconds at 100 MHz clock
+    // Parameters for time units
+    localparam one_time_unit = 1; 
+    localparam three_time_units = 2;  
+    localparam seven_time_units = 6;  
 
-    reg [31:0] inactivity_counter;
+    reg [31:0] inactivity_counter; // Counter for button inactivity duration
     reg [31:0] counter; // Counter for button press duration
     
     reg button_prev; // Tracks previous button state for edge detection
@@ -71,7 +72,7 @@ module button_to_morse (
                 
                 counter <= counter + 1;  // Increment counter
                 inactivity_counter <= 0;  // Reset inactivity counter
-            end else if (!button && button_prev) begin   // Button released
+            end else if (!button && button_prev) begin  // Button released
                 if (counter >= one_time_unit) begin
                     // Determine dot or dash based on press duration
                     if (counter >= three_time_units) begin
