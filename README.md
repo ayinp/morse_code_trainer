@@ -35,17 +35,15 @@ This project is designed to change morse code input to a text which will be disp
 ### Overview of what the module does ⚙️
 
 - **Clock Divider:**
-  - A
+  - Clock Divider **takes the high-frequency clock signal** from the FPGA and **slows it down** to a manageable speed for processing. The FPGA we are using has the **frequency of 100MHz** and we **reduced** it to **2Hz** to have a **clock cycle of 0.5s** but is also **changeable using switching** allowing you to train in **4 different speeds between 0.25s to 2s.**
 - **Debounder:**
-  - A
+  - The Debouncer module **cleans up any noise** from the **button input** to ensure **stable signals are sent** to the next stage.
 - **Button to Morse:**
-  - A
+  - The button_to_morse module **converts** the **button press durations** into **Morse code symbols.** **Short presses** which equal to **1 clock cycle, represent dots,** while longer presses which equal to **3 clock cycles represent dashes.** This module also **detects when a letter is completed** (letter_done) or when **there’s a space** (is_space). The morse_index **signal tracks the position** of each **Morse code symbol within a letter.** You can also **reset the display** using the **reset button** (ButtonD).
 - **Morse Decoder:**
-  - A
+  - The morse_decoder **takes the Morse code symbols** (morse_one to morse_five) and **converts** them into **their corresponding ASCII character.** It uses a **binary tree traversal logic** to **match** the sequence of **dots and dashes to letters, numbers, or special characters.** When a **valid character is decoded,** it is **sent** to the **next stage.**
 - **7 Segment Display:**
-  - A
-- **FPGA:**
-  - A
+  - The seven_seg_disp module **takes the ASCII character output** from the decoder and **translates** it into a **pattern for a seven-segment display.** It **cycles through multiple displays** to **show characters sequentially,** supporting up to **eight characters** at a time. The module **shifts the active display** with each **new character or reset signal.**
 
 ![Block Diagram](https://github.com/user-attachments/assets/720cb89d-cf42-4faa-a24b-caba0f36659e)
 
