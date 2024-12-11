@@ -121,6 +121,7 @@ module button_to_morse (
                     3'b010: begin morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00; end
                     3'b011: begin morse_four <= 2'b00; morse_five <= 2'b00; end
                     3'b100: begin morse_five <= 2'b00; end
+                    3'b101: begin end
                     default begin 
                         morse_one <= 2'b00; morse_two <= 2'b00; morse_three <= 2'b00; morse_four <= 2'b00; morse_five <= 2'b00;
                     end
