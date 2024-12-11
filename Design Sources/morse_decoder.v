@@ -54,10 +54,10 @@ module morse_decoder (
                             end else if (morse_five == 2'b10) // Dash
                                 ascii_char = "4"; // ....-
                             else ascii_char = "H"; // ....
-                        end else if (morse_four == 2'b10) // Dash ...-
-                            if (morse_five == 2'b01) begin // Dot 
+                        end else if (morse_four == 2'b10)  // Dash ...-
+                            if (morse_five == 2'b01) // Dot 
                                 ascii_char = " "; // ...-. (invalid)
-                            end else if (morse_five == 2'b10) 
+                            else if (morse_five == 2'b10) 
                                 ascii_char = "3"; // ...--
                             else ascii_char = "V"; // ...-
                         else ascii_char = "S"; // ...
