@@ -56,7 +56,8 @@ This is how the 7 Segment Display will show each of the letters and numbers on t
 
 ### Features (Demo Video) 💻
 
-
+You can press on the link to access the demo video which goes in more detail about the project:
+- [Demo Video](https://drive.google.com/file/d/1t23YFIHQF67KzqSVG-30i6v6dzrsoMA6/view?usp=share_link).
 
 ---
 
